@@ -1,72 +1,13 @@
-# Allgemeine Infrastruktur-Server 
-[common]
-remue-ansible		ansible_ssh_host=144.76.30.226		ansible_ssh_port=222
-backup			ansible_ssh_host=2a01:4f8:192:3c6::dead:c0de			ansible_ssh_port=255
-unifi			ansible_ssh_host=2a03:2260:115:4300:5054:ff:fe14:bb9f		ansible_ssh_port=22
-mail			ansible_ssh_host=148.251.208.169	ansible_ssh_port=22
-wiki			ansible_ssh_host=46.4.90.250		ansible_ssh_port=22
-forum			ansible_ssh_host=148.251.208.171	ansible_ssh_port=22
+[services]
+services ansible_ssh_host=37.120.186.39
 
-[hypervisors]
-#fanLinvirthost		ansible_ssh_host=	TODO		ansible_ssh_port=22	# Kein Zugriff!
-#hyperhost		ansible_ssh_host=	TODO		ansible_ssh_port=22	# Kein Zugriff!
-jetplow			ansible_ssh_host=46.4.90.196		ansible_ssh_port=22	# Kein Zugriff!
-deshyper-01		ansible_ssh_host=5.9.86.151		ansible_ssh_port=22
-deshyper-02		ansible_ssh_host=148.251.45.18		ansible_ssh_port=22	# Kein Zugriff! 
-remue			ansible_ssh_host=144.76.30.226		ansible_ssh_port=22
-hypercorn		ansible_ssh_host=144.76.81.199		ansible_ssh_port=22	# Kein Zugriff!
-unimatrixzero		ansible_ssh_host=176.9.38.150		ansible_ssh_port=22
-voyager			ansible_ssh_host=46.4.80.179		ansible_ssh_port=22
-battleaxegaming		ansible_ssh_host=46.4.122.244		ansible_ssh_port=22	# Kein Zugriff!
-
-# Server für Hoppglas Karten
-[mapserver]
-karte			ansible_ssh_host=148.251.208.172	ansible_ssh_port=22
-
-# Server für Statistiken mittels Graphite und Grafana
-[statistics]
-stats                   ansible_ssh_host=5.9.86.142             ansible_ssh_port=22
-graphite-node-01	ansible_ssh_host=148.251.45.18		ansible_ssh_port=250
-
-# Server die diverse Dienste anbieten.
-[dienste]
-webserver		ansible_ssh_host=46.4.80.179		ansible_ssh_port=223
-ticket			ansible_ssh_host=5.9.86.151		ansible_ssh_port=223
-dnsmaster		ansible_ssh_host=176.9.38.163		ansible_ssh_port=22
-
-# Legacy fastd Domäne
-[domaene-06]
-remue-04		ansible_ssh_host=148.251.208.168	ansible_ssh_port=22
-
-# Multidomänen-L2TP Gateways mit oder ohne Direktanbindung FFRL
-# 'capacity' im Kommentar gibt die erwünschte relative Auslastung mit Traffic und L2TP-Verbindungen an
-# 'server' im Kommentar muss angegeben werden, wenn mehrere L2TP-VM auf einem Blech laufen. Der Wert kann frei gewählt werden.
 [gateways]
-#tj01			ansible_ssh_host=46.4.122.254		ansible_ssh_port=22	# IPv4 -> FFNW	IPv6 -> BCKB	capacity=0.70	server=battleaxegaming
-parad0x			ansible_ssh_host=94.130.64.196		ansible_ssh_port=22	# IPv4 -> FFNW	IPv6 -> FFRL	capacity=1.20	server=hyperhost	
-c1024			ansible_ssh_host=176.9.88.123		ansible_ssh_port=22	# IPv4 -> FFRL	IPv6 -> FFRL	capacity=1.20
-fanlin			ansible_ssh_host=89.163.221.125		ansible_ssh_port=22	# IPv4 -> FFRL	IPv6 -> FFRL	capacity=0.50	server=fanlinvirthost
-des1			ansible_ssh_host=5.9.86.154		ansible_ssh_port=22	# IPv4 -> FFRL	IPv6 -> FFRL	capacity=1.20	server=deshyper-01
-des2			ansible_ssh_host=148.251.45.45		ansible_ssh_port=22	# IPv4 -> FFRL	IPv6 -> FFRL	capacity=1.20	server=deshyper-02
-remue-09		ansible_ssh_host=148.251.208.170	ansible_ssh_port=22	# IPv4 -> FFNW  IPv6 -> BCKB	capacity=1.00	server=remue
-nightbounce		ansible_ssh_host=46.4.90.220		ansible_ssh_port=22	# IPv4 -> FFRL	IPv6 -> FFRL	capacity=1.00	server=jetplow
-handle			ansible_ssh_host=62.210.220.140		ansible_ssh_port=22	# IPv4 -> FFRL	IPv6 -> FFRL	capacity=0.60	
-corny			ansible_ssh_host=144.76.81.157		ansible_ssh_port=22	# IPv4 -> FFNW	IPv6 -> FFRL	capacity=1.20	server=hypercorn
-corny2			ansible_ssh_host=144.76.81.139		ansible_ssh_port=22	# IPv4 -> FFNW	IPv6 -> BCKB	capacity=1.20	server=hypercorn
-automatix		ansible_ssh_host=46.4.80.179		ansible_ssh_port=222	# IPv4 -> FFNW	IPv6 -> BCKB	capacity=1.20	server=voyager
+host1 ansible_ssh_host=51.254.208.25
 
-
-# Server zum bauen und bereitstellen der Firmware
-[firmwareserver]
-firmware		ansible_ssh_host=144.76.30.226		ansible_ssh_port=223
-
-# Server der ein Monitoring mittels icinga zur verfügung stellt.
-[monitoring]
-icinga			ansible_ssh_host=148.251.208.173	ansible_ssh_port=22
-
-[monitoring-satellites]
-remue
-#satellite-01		ansible_ssh_host=234.234.234.234	ansible_ssh_port=22
-
-[vip-nodes]
-#vip-node-dummy-01	ansible_ssh_host=123.123.123.123	ansible_ssh_port=22
+[dienste]
+webserver               ansible_ssh_host=46.4.80.179            ansible_ssh_port=223
+ticket                  ansible_ssh_host=5.9.86.151             ansible_ssh_port=223
+dnsmaster               ansible_ssh_host=37.120.186.39          ansible_ssh_port=22
+[mapserver]
+karte                   ansible_ssh_host=37.120.186.39          ansible_ssh_port=22
+[domaene-06]
