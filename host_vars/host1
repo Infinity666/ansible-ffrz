@@ -1,0 +1,44 @@
+server_id: 2
+vm_id: 2
+
+server_besitzer: "Martin"
+hoster: "OVH"
+
+ffrl_nat_ip: 185.66.193.62/31
+
+domaenenliste:
+  "01":
+    dhcp_start: 10.49.30.20
+    dhcp_ende: 10.49.39.254
+    server_id: 2
+
+
+
+ffrl_tun:
+- name: ber1
+  gre_target: 185.66.195.0
+  v4_local: 100.64.9.135/31
+  v4_remote: 100.64.9.134/31
+  v6_local: 2a03:2260:0:4d8::2/64
+  v6_remote: 2a03:2260:0:4d8::1/64
+- name: fra1
+  gre_target: 185.66.194.0
+  v4_local: 100.64.9.137/31
+  v4_remote: 100.64.9.136/31
+  v6_local: 2a03:2260:0:4d9::2/64
+  v6_remote: 2a03:2260:0:4d9::1/64
+- name: dus1
+  gre_target: 185.66.193.0
+  v4_local: 100.64.9.139/31
+  v4_remote: 100.64.9.138/31
+  v6_local: 2a03:2260:0:4da::2/64
+  v6_remote: 2a03:2260:0:4da::1/64
+
+
+tunneldigger:
+  instance_per_domain: true
+  interface: "eth0"
+  max_tunnels: 768
+  port_base: 20100
+  pmtu_discovery: false
+  tunnel_timeout: 60
